@@ -134,33 +134,26 @@ def logintopronto(username, password, debug):
     }).parent
     tds = table.findAll('td')
 
-    print "-" * 40
-    puts(colored.cyan(" " * 14 + "Plan Details"))
-    print "-" * 40
-    puts(colored.magenta("Data Limit: ") + planDetails[0])
-    puts(colored.magenta("Start Date: ") + planDetails[2])
-    puts(colored.magenta("End Date: ") + planDetails[3])
-    print "-" * 40
+    #print "-" * 40
+    #puts(colored.cyan(" " * 14 + "Plan Details"))
+    #print "-" * 40
+    #puts(colored.magenta("Data Limit: ") + planDetails[0])
+    #puts(colored.magenta("Start Date: ") + planDetails[2])
+    #puts(colored.magenta("End Date: ") + planDetails[3])
+    #print "-" * 40
 
-    print "-" * 40
-    puts(colored.cyan(" " * 17 + "Usage"))
-    print "-" * 40
-    puts(colored.magenta("Total Time: ") + tds[1].text)
-    puts(colored.magenta("Uploaded: ") + tds[2].text)
-    puts(colored.magenta("Downloaded: ") + tds[3].text)
-    puts(colored.magenta("Total Data: ") + tds[4].text)
+    #print "-" * 40
+    #puts(colored.cyan(" " * 17 + "Usage"))
+    #print "-" * 40
+    #puts(colored.magenta("Total Time: ") + tds[1].text)
+    #puts(colored.magenta("Uploaded: ") + tds[2].text)
+    #puts(colored.magenta("Downloaded: ") + tds[3].text)
+    #puts(colored.magenta("Total Data: ") + tds[4].text)
     sd = str(tds[4].text)
     # print(float(filter(str.isdigit, sd)))
     x = map(float, re.findall(r'[+-]?[0-9.]+', sd))
 
-    if x[0] > 3:
-        textmyself.textmyself("Rahul, you have used more than 3GB. STAY SAFE!")
-    elif x[0] > 7:
-        textmyself.textmyself("Hey Rahul, Data is very low, come on!")
-    elif x[0] > 8:
-        textmyself.textmyself("Rahul, you asshole control yourself.")
-    elif x[0] < 3:
-        textmyself.textmyself("GO PORN GO!")
+    textmyself.textmyself("Hey! Rahul you have used " + sd)
 
     print "-" * 40
 

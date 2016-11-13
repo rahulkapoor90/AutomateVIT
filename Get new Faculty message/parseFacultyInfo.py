@@ -27,7 +27,7 @@ def login():
     br.set_handle_referer(True)
     cj = cookielib.CookieJar()
     br.set_cookiejar(cj)
-    response = br.open('https://academics.vit.ac.in/student/stud_login.asp')
+    response = br.open('https://vtop.vit.ac.in/student/stud_login.asp')
     html = response.read()
     soup = BeautifulSoup(html)
     im = soup.find('img', id='imgCaptcha')
@@ -40,7 +40,7 @@ def login():
     br.form['passwd'] = PASSWORD
     br.form['vrfcd'] = str(captcha)
     br.submit()
-    if br.geturl() == 'https://academics.vit.ac.in/student/home.asp':
+    if br.geturl() == 'https://vtop.vit.ac.in/student/home.asp':
         puts(colored.yellow("LOGIN SUCCESSFUL"))
         return br
     else:
@@ -51,8 +51,8 @@ def parseFacultyPage(br, facultyID):
     if br is None:
         return None
 
-    br.open('https://academics.vit.ac.in/student/stud_home.asp')
-    response = br.open('https://academics.vit.ac.in/student/class_message_view.asp?sem=' + facultyID)
+    br.open('https://vtop.vit.ac.in/student/stud_home.asp')
+    response = br.open('https://vtop.vit.ac.in/student/class_message_view.asp?sem=' + facultyID)
     html = response.read()
     soup = BeautifulSoup(html)
     tables = soup.findAll('table')
